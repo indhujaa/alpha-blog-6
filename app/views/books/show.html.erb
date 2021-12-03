@@ -1,0 +1,8 @@
+<h1>Show Book Details </h1>
+<p><strong>Title :</strong><%= @book.title%></p>
+<p><strong>Description :</strong><%= @book.description%></p>
+<p><strong>Author :</strong><%= @book.author%></p>
+
+<p><%= link_to "Edit",edit_book_path(@book.id)%>
+<%= link_to "Delete",book_path(@book.id),method: :delete,data:{confirm:"Are You Sure.?"}%><p>
+  <p><%= link_to "View All Books",books_path%></p>
