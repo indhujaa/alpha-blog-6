@@ -1,0 +1,56 @@
+@import 'bootstrap/dist/css/bootstrap';
+
+body{
+  margin: 0px !important;
+}
+.navbar {
+  background-color: black !important;
+}
+.nav-link{
+  color: white !important;
+}
+#logo{
+  color: white;
+  font-weight: bolder;
+  font-size: 1.7em;
+  letter-spacing: -1px;
+}
+
+.form-book{
+  padding: 10px;
+}
+
+.jumbotron {
+  padding: 2rem 1rem;
+  margin-bottom: 2rem;
+  background-color: #e9ecef;
+  border-radius: .3rem;
+  background-image: asset-url("home_image.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  height: 400px;
+}
+#home-container{
+  margin-top: 20px;
+}
+.fixed-bottom{
+  height: 50px;
+  background-color: #7b7b7b;
+  padding: 10px;
+}
+#page-content{
+  background: lightgrey;
+  flex: 1 0 auto;
+}
+html,body{
+  height: 100%;
+}
+
+// .navbar-brand {
+//   font-size: 3rem;
+// }
+//
+// h1 {
+//   color: red;
+// }

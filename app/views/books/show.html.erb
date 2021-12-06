@@ -1,8 +1,21 @@
-<h1>Show Book Details </h1>
-<p><strong>Title :</strong><%= @book.title%></p>
-<p><strong>Description :</strong><%= @book.description%></p>
-<p><strong>Author :</strong><%= @book.author%></p>
 
-<p><%= link_to "Edit",edit_book_path(@book.id)%>
-<%= link_to "Delete",book_path(@book.id),method: :delete,data:{confirm:"Are You Sure.?"}%><p>
-  <p><%= link_to "View All Books",books_path%></p>
+<h1 class="text-center mt-4"><%=@book.title %></h1>
+<div class="container">
+  <div class="row mt-4 justify-content-center">
+    <div class="col-8">
+      <div class="card text-center">
+        <div class="card-header">
+          by <%=@book.author%>
+        </div>
+        <div class="card-body">
+          <p class="card-text"><%= @book.description%></p>
+          <%= link_to "Edit",edit_book_path(@book.id),class: "btn btn-sm btn-outline-primary"%>
+          <%= link_to "Delete",book_path(@book.id),method: :delete,data:{confirm:"Are you Sure?"},class: "btn btn-sm btn-outline-danger"%>
+        </div>
+        <div class="card-footer text-muted">
+          <small>Created <%= time_ago_in_words(@book.created_at)%> ago and Edited <%= time_ago_in_words(@book.updated_at)%> ago</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

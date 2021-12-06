@@ -1,28 +1,39 @@
-<% if @book.errors.any? %>
-<div class="" style="color:red">
-  <h3>Errors</h3>
-  <ul>
-    <% @book.errors.full_messages.each do |msg| %>
-      <li><%=msg%></li>
+<div class="container">
+
+
+
+
+<div class="row justify-content-center mt-4">
+  <div class="col-8">
+    <%= render "errors"%>
+    <%= form_with(model: @book,class: "bg-info form-book",local: true) do |f| %>
+      <div class="form-group row mt-4">
+          <%= f.label :title,class: "col-sm-2 col-form-label text-white"%>
+          <div class="col-8">
+              <%= f.text_field :title,placeholder: "Title",class: "form-control"%>
+          </div>
+
+      </div>
+      <div class="form-group row  mt-4">
+          <%= f.label :description,class: "col-sm-2 col-form-label text-white"%>
+          <div class="col-8">
+              <%= f.text_area :description,placeholder: "Description",row: 20,class: "form-control"%>
+          </div>
+
+      </div>
+      <div class="form-group row  mt-4">
+          <%= f.label :author,class: "col-sm-2 col-form-label text-white"%>
+          <div class="col-8">
+            <%= f.text_field :author,placeholder: "Author",class: "form-control"%>
+          </div>
+
+      </div>
+      <div class="form-group  mt-4 text-center" >
+          <%= f.submit class: "btn btn-outline-light justify-content-center"%>
+      </div>
     <% end %>
-  </ul>
-<% end %>
+  </div>
+    <%= link_to "[Back]",books_path,class: "text-center text-info mt-4"%>
 </div>
 
-<%= form_with(model: @book,local: true) do |f| %>
-  <p>
-      <%= f.label :title%><br>
-      <%= f.text_field :title%>
-  </p>
-  <p>
-      <%= f.label :description%><br>
-      <%= f.text_area :description%>
-  </p>
-  <p>
-      <%= f.label :author%><br>
-      <%= f.text_field :author%>
-  </p>
-  <p>
-      <%= f.submit%>
-  </p>
-<% end %>
+</div>
