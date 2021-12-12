@@ -1,0 +1,34 @@
+<div class="container">
+<div class="row justify-content-center mt-4">
+  <div class="col-8">
+    <%= render "shared/errors",obj: @user%>
+    <%= form_with(model: @user,class: "bg-info form-book",local: true) do |f| %>
+      <div class="form-group row mt-4">
+          <%= f.label :username,class: "col-sm-2 col-form-label text-white"%>
+          <div class="col-8">
+              <%= f.text_field :username,placeholder: "Username",class: "form-control"%>
+          </div>
+
+      </div>
+      <div class="form-group row  mt-4">
+          <%= f.label :email,class: "col-sm-2 col-form-label text-white"%>
+          <div class="col-8">
+              <%= f.email_field :email,placeholder: "Email",row: 20,class: "form-control"%>
+          </div>
+
+      </div>
+      <div class="form-group row  mt-4">
+          <%= f.label :password,class: "col-sm-2 col-form-label text-white"%>
+          <div class="col-8">
+            <%= f.password_field :password,placeholder: "Password",class: "form-control"%>
+          </div>
+
+      </div>
+      <div class="form-group  mt-4 text-center" >
+          <%= f.submit(@user.new_record? ? "Sign Up" : "Update Account",class: "btn btn-outline-light justify-content-center")%>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+</div>

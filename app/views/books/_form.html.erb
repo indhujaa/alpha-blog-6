@@ -5,7 +5,7 @@
 
 <div class="row justify-content-center mt-4">
   <div class="col-8">
-    <%= render "errors"%>
+    <%= render "shared/errors",obj: @book%>
     <%= form_with(model: @book,class: "bg-info form-book",local: true) do |f| %>
       <div class="form-group row mt-4">
           <%= f.label :title,class: "col-sm-2 col-form-label text-white"%>

@@ -1,0 +1,44 @@
+<h1 class="text-center mt-4">Bloggers</h1>
+<div class="flickr_pagination">
+  <%= will_paginate @users, :container => false %>
+</div>
+<div class="container">
+
+  <% @users.each do |user| %>
+  <div class="row mt-4 justify-content-center">
+    <div class="col-8">
+      <div class="card text-center">
+        <div class="card-header">
+        <%= link_to user.username.capitalize,user%>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">
+            <%= link_to gravetor_for(user,size: 150),user%>
+          </h5>
+          <p class="card-text"><%= pluralize(user.books.count,"Book")%></p>
+          <%= link_to "Show",user,class: "btn btn-sm btn-outline-success"%>
+          <% if logged_in?%>
+            <% if current_user== user%>
+              <%= link_to "Edit",edit_user_path(user.id),class: "btn btn-sm btn-outline-primary"%>
+            <%end%>
+            <% if current_user.admin? %>
+              <%= link_to "Delete",user_path(user.id),class: "btn btn-sm btn-outline-danger",method: :delete,data:{confirm:"Are you sure??"}%>
+            <%end%>
+          <%end%>
+        </div>
+        <div class="card-footer text-muted">
+          <small>Joined <%= time_ago_in_words(user.created_at)%> ago</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%end%>
+</div>
+<div class="flickr_pagination mt-4 mb-4">
+  <%= will_paginate @users, :container => false %>
+</div>
+<br>
+<br>
+<br>
+<br>

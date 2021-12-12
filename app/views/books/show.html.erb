@@ -5,12 +5,17 @@
     <div class="col-8">
       <div class="card text-center">
         <div class="card-header">
-          by <%=@book.author%>
+          by <%=@book.user.username.capitalize%>
+          <div class="">
+            <%=link_to gravetor_for(@book.user),user_path(@book.user.id)%>
+          </div>
         </div>
         <div class="card-body">
           <p class="card-text"><%= @book.description%></p>
-          <%= link_to "Edit",edit_book_path(@book.id),class: "btn btn-sm btn-outline-primary"%>
-          <%= link_to "Delete",book_path(@book.id),method: :delete,data:{confirm:"Are you Sure?"},class: "btn btn-sm btn-outline-danger"%>
+          <% if logged_in? && (current_user== @book.user || current_user.admin?)%>
+            <%= link_to "Edit",edit_book_path(@book.id),class: "btn btn-sm btn-outline-primary"%>
+            <%= link_to "Delete",book_path(@book.id),method: :delete,data:{confirm:"Are you Sure?"},class: "btn btn-sm btn-outline-danger"%>
+          <%end%>
         </div>
         <div class="card-footer text-muted">
           <small>Created <%= time_ago_in_words(@book.created_at)%> ago and Edited <%= time_ago_in_words(@book.updated_at)%> ago</small>
