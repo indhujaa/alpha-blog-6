@@ -44,7 +44,7 @@ class BooksController < ApplicationController
     @book=Book.find(params[:id])
   end
   def book_param
-    params.require(:book).permit(:title,:description,:author)
+    params.require(:book).permit(:title,:description,:author,category_ids:[])
   end
   def require_same_user?
     if(current_user!=@book.user && !current_user.admin?)
